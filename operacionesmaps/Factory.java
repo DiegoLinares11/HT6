@@ -2,7 +2,7 @@ package operacionesmaps;
 
 import java.util.Map;
 
-public interface CartaMapFactory {
+public interface Factory {
 
     Map<String, String> createMap();
 
