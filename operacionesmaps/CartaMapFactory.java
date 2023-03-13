@@ -1,10 +1,13 @@
 package operacionesmaps;
 
+import java.util.List;
 import java.util.Map;
 
-public interface Factory {
+public interface CartaMapFactory {
 
     Map<String, String> createMap();
+
+    // Map<String, Integer> createMap2();
 
     void agregarCarta(String nombre, String tipo);
 
@@ -17,5 +20,7 @@ public interface Factory {
     void contarCartasPorTipo();
 
     void contarCartasPorTipoOrdendas();
+
+    // void contarCartasRepetidas();
 
 }

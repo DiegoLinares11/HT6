@@ -3,14 +3,13 @@ package operacionesmaps;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Scanner;
 
 public class OperacionesCartaMap {
 
     public static void main(String[] args) {
-        Factory mapFactoryCartas = null;
-        Factory mapFactoryCartasUsuario = null;
+        CartaMapFactory mapFactoryCartas = null;
+        CartaMapFactory mapFactoryCartasUsuario = null;
 
         // Leemos la entrada del usuario para determinar qué implementación de Map usar
         Scanner scanner = new Scanner(System.in);
@@ -141,6 +140,7 @@ public class OperacionesCartaMap {
                     mapFactoryCartasUsuario.contarCartasPorTipo();
                     System.out.println("Presione enter para continuar...");
                     scanner.nextLine();
+                    // mapFactoryCartasUsuario.contarCartasRepetidas();
                     // mostrarCartas(cartas);
                     // mapFactoryCartasUsuario.contarCartas();
                     break;

@@ -1,29 +1,38 @@
 package operacionesmaps;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
-public class TreeMapCartaMap implements Factory {
+public class TreeMapCartaMap implements CartaMapFactory {
 
-    private HashMap<String, String> map;
+    private TreeMap<String, String> map;
+    // private TreeMap<String, Integer> map2;
 
     @Override
     public Map<String, String> createMap() {
-        map = new LinkedHashMap<>();
+        map = new TreeMap<>();
         return map;
     }
 
+    /*
+     * public Map<String, Integer> createMap2() {
+     * map = new TreeMap<>();
+     * return map2;
+     * }
+     */
     @Override
     public void agregarCarta(String nombre, String tipo) {
         if (this.map.containsKey(nombre)) {
-            System.out.println("Ya existe una carta de " + nombre);
 
+            System.out.println("Ya existe una carta de " + nombre);
+            // 2 map2.put(nombre, 0);
         } else {
             this.map.put(nombre, tipo);
+            // map2.put(nombre, map2.get(nombre) + 1);
 
         }
 
@@ -41,6 +50,7 @@ public class TreeMapCartaMap implements Factory {
             System.out.println("Carta: " + entry.getKey() + " - " + entry.getValue());
 
         }
+
     }
 
     @Override
@@ -59,8 +69,31 @@ public class TreeMapCartaMap implements Factory {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println("Carta: " + entry.getKey() + " - " + entry.getValue());
         }
+
     }
 
+    /*
+     * @Override
+     * public void contarCartasRepetidas() {
+     * for (Map.Entry<String, String> entrada : map.entrySet()) {
+     * String llave = entrada.getKey();
+     * // String valor = entrada.getValue();
+     * 
+     * // Si la llave no está en el segundo mapa, la agregamos con valor inicial 0
+     * if (!map2.containsKey(llave)) {
+     * map2.put(llave, 0);
+     * }
+     * 
+     * // Incrementamos el valor del contador para la llave correspondiente
+     * map2.put(llave, map2.get(llave) + 1);
+     * 
+     * }
+     * 
+     * for (Map.Entry<String, Integer> entry : map2.entrySet()) {
+     * System.out.println("Carta: " + entry.getKey() + " - " + entry.getValue());
+     * }
+     * }
+     */
     @Override
     public void contarCartasPorTipoOrdendas() {
         List<Map.Entry<String, String>> entradas = new ArrayList<>(this.map.entrySet());

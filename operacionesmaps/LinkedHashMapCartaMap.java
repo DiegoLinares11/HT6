@@ -1,15 +1,16 @@
 package operacionesmaps;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-public class LinkedHashMapCartaMap implements Factory {
+public class LinkedHashMapCartaMap implements CartaMapFactory {
 
-    private HashMap<String, String> map;
+    private LinkedHashMap<String, String> map;
+    // private LinkedHashMap<String, Integer> map2;
 
     @Override
     public Map<String, String> createMap() {
@@ -17,6 +18,13 @@ public class LinkedHashMapCartaMap implements Factory {
         return map;
     }
 
+    /*
+     * @Override
+     * public Map<String, Integer> createMap2() {
+     * map2 = new LinkedHashMap<>();
+     * return map2;
+     * }
+     */
     @Override
     public void agregarCarta(String nombre, String tipo) {
         if (this.map.containsKey(nombre)) {
@@ -61,6 +69,23 @@ public class LinkedHashMapCartaMap implements Factory {
         }
     }
 
+    /*
+     * @Override
+     * public void contarCartasRepetidas() {
+     * for (Map.Entry<String, String> entrada : map.entrySet()) {
+     * String llave = entrada.getKey();
+     * // String valor = entrada.getValue();
+     * 
+     * // Si la llave no está en el segundo mapa, la agregamos con valor inicial 0
+     * if (!map2.containsKey(llave)) {
+     * map2.put(llave, 0);
+     * }
+     * 
+     * // Incrementamos el valor del contador para la llave correspondiente
+     * map2.put(llave, map2.get(llave) + 1);
+     * }
+     * }
+     */
     @Override
     public void contarCartasPorTipoOrdendas() {
         List<Map.Entry<String, String>> entradas = new ArrayList<>(this.map.entrySet());
